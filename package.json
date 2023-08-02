@@ -11,7 +11,8 @@
     "eject": "react-scripts eject",
     "lint": "eslint --fix",
     "test": "react-scripts test --watchAll=false",
-    "precommit": "echo 'Running precommit...' && npm test && lint-staged && npm run build"
+    "precommit": "echo 'Running precommit...' && npm test && lint-staged && npm run build",
+    "cypress": "cypress open"
   },
   "dependencies": {
     "@ant-design/icons": "^5.2.4",
@@ -45,10 +46,12 @@
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@typescript-eslint/eslint-plugin": "^6.2.0",
     "@typescript-eslint/parser": "^6.2.0",
+    "cypress": "^12.17.3",
     "dotenv": "^16.3.1",
     "eslint": "^8.46.0",
     "eslint-config-prettier": "^8.9.0",
     "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-cypress": "^2.13.3",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-prettier": "^5.0.0",
     "husky": "^8.0.3",
