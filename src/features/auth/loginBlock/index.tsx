@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next'
 import { FC, useState } from 'react'
 
 import { FormModal } from 'shared/components'
@@ -9,19 +8,13 @@ import { UserLoginType } from 'entites/auth/types'
 export const LoginBlock: FC = () => {
   const [isModalVisible, setIsModalVisible] = useState(false)
 
-  const { t } = useTranslation()
-
   const showModal = () => setIsModalVisible(true)
 
   const handleCancelModal = () => setIsModalVisible(false)
 
-  const handleLogin = (values: UserLoginType) => {
-    console.log(values)
-  }
+  const handleLogin = (values: UserLoginType) => {}
 
-  const handleCancelForm = () => {
-    console.log(`cancel`)
-  }
+  const handleCancelForm = () => {}
 
   return (
     <FormModal

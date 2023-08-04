@@ -1,6 +1,5 @@
 import { Col } from 'antd'
 import { FC } from 'react'
-import { useTranslation } from 'react-i18next'
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons'
 import { Form, Formik } from 'formik'
 
@@ -16,8 +15,6 @@ export const RegistrationForm: FC<RegistrationFormPropsType> = ({
   onSubmitForm,
   onCancelForm,
 }) => {
-  const { t } = useTranslation()
-
   const getInitialValues = (): UserRegistrationType => {
     return {
       email: '',
@@ -27,7 +24,7 @@ export const RegistrationForm: FC<RegistrationFormPropsType> = ({
     }
   }
 
-  const handleLogin = (values: UserRegistrationType) => console.log(values)
+  const handleLogin = (values: UserRegistrationType) => {}
 
   return (
     <Formik
