@@ -6,7 +6,7 @@ describe('Visit Home Page', () => {
   })
 
   it('displays Logout button', () => {
-    cy.get('.ant-btn').should('have.text', 'Logout')
+    cy.contains('button', 'Logout')
   })
 
   it('displays Sidebar', () => {

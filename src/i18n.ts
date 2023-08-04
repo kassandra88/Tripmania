@@ -8,6 +8,7 @@ import { LANGUAGES } from 'shared/constants'
 const setLanguage = () => {
   const language = localStorage.getItem('i18n')
 
+  if (language) i18n.changeLanguage(language)
   if (!language) i18n.changeLanguage(LANGUAGES.ENGLISH)
 }
 

@@ -1,3 +1,5 @@
+export const APP_TITLE = 'Tripmania'
+
 export enum PAGES_URLS {
   HOME_PAGE_URL = '/',
 }

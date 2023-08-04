@@ -9,7 +9,7 @@ const HomePage: FC = () => {
 
   return (
     <MainLayout pageTitle="HomePage">
-      <Button>{t('logout')}</Button>
+      <Button data-testid="logout-btn">{t('logout')}</Button>
     </MainLayout>
   )
 }
