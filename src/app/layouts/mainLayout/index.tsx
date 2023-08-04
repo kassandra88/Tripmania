@@ -2,8 +2,9 @@ import styled from 'styled-components'
 import { FC, ReactNode, useState } from 'react'
 import { Layout, theme } from 'antd'
 
-import { Header } from './header'
-import { Sider } from './sider'
+import { AppHelmet } from '../helmet'
+import { Header } from '../../../widgets/layouts/header'
+import { Sider } from '../../../widgets/layouts/sider'
 
 const { Content } = Layout
 
@@ -19,9 +20,13 @@ const StyledContent = styled(Content)`
 
 type MainLayoutPropsType = {
   children: ReactNode
+  pageTitle: string
 }
 
-const MainLayout: FC<MainLayoutPropsType> = ({ children }) => {
+export const MainLayout: FC<MainLayoutPropsType> = ({
+  children,
+  pageTitle,
+}) => {
   const [collapsed, setCollapsed] = useState(false)
 
   const {
@@ -32,6 +37,8 @@ const MainLayout: FC<MainLayoutPropsType> = ({ children }) => {
 
   return (
     <StyledLayout>
+      <AppHelmet pageTitle={pageTitle} />
+
       <Sider collapsed={collapsed} />
 
       <Layout>
@@ -52,5 +59,3 @@ const MainLayout: FC<MainLayoutPropsType> = ({ children }) => {
     </StyledLayout>
   )
 }
-
-export default MainLayout
