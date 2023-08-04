@@ -1,7 +1,7 @@
 import { BrowserRouter } from 'react-router-dom'
 import { FC, ReactNode, Suspense } from 'react'
 
-// import '../matchMedia'
+import '../matchMedia'
 
 type Props = {
   component: ReactNode
