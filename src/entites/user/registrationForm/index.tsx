@@ -3,35 +3,39 @@ import { Button, Col, Row } from 'antd'
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons'
 import { Form, Formik } from 'formik'
 
-import { UserLoginType } from '../types'
+import { UserRegistrationType } from '../types'
 import { Input, PasswordInput } from 'shared/components'
 
-type LoginFormPropsType = {
-  onSubmitForm: (values: UserLoginType) => void
+type RegistrationFormPropsType = {
+  onSubmitForm: (values: UserRegistrationType) => void
   onCancelForm: () => void
 }
 
-export const LoginForm: FC<LoginFormPropsType> = ({
+export const RegistrationForm: FC<RegistrationFormPropsType> = ({
   onSubmitForm,
   onCancelForm,
 }) => {
-  const getInitialValues = (): UserLoginType => {
+  const getInitialValues = (): UserRegistrationType => {
     return {
       email: '',
+      username: '',
       password: '',
+      passwordConfirmation: '',
     }
   }
 
-  const handleSubmitForm = (values: UserLoginType) => onSubmitForm(values)
+  const handleRegisterUser = (values: UserRegistrationType) => {
+    onSubmitForm(values)
+  }
 
   return (
     <Formik
       validateOnBlur
       validateOnChange
       initialValues={getInitialValues()}
-      onSubmit={(values) => handleSubmitForm(values)}
+      onSubmit={(values) => handleRegisterUser(values)}
     >
-      {({ values, setFieldValue, handleBlur }) => (
+      {({ values, setFieldValue, errors, touched, handleBlur, isValid }) => (
         <Form>
           <Col>
             <Input
@@ -39,6 +43,16 @@ export const LoginForm: FC<LoginFormPropsType> = ({
               ariaLabel="email"
               value={values.email}
               onChange={(e) => setFieldValue('email', e.target.value)}
+              onBlur={(e) => handleBlur(e)}
+            />
+          </Col>
+
+          <Col>
+            <Input
+              name="username"
+              ariaLabel="username"
+              value={values.username}
+              onChange={(e) => setFieldValue('username', e.target.value)}
               onBlur={(e) => handleBlur(e)}
             />
           </Col>
@@ -55,6 +69,22 @@ export const LoginForm: FC<LoginFormPropsType> = ({
               onBlur={(e) => handleBlur(e)}
             />
           </Col>
+
+          <Col>
+            <PasswordInput
+              name="passwordConfirmation"
+              ariaLabel="passwordConfirmation"
+              value={values.passwordConfirmation}
+              onChange={(e) =>
+                setFieldValue('passwordConfirmation', e.target.value)
+              }
+              iconRender={(visible) =>
+                visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
+              }
+              onBlur={(e) => handleBlur(e)}
+            />
+          </Col>
+
           <Row justify="center">
             <Button type="primary" htmlType="submit">
               Submit

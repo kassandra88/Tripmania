@@ -1,7 +1,15 @@
 {
   "eslint.workingDirectories": [
     {
-      "directory": "./"
+      "directory": "./",
+      "changeProcessCWD": true
+    }
+  ],
+  "json.schemaDownload.enable": false,
+  "json.schemas": [
+    {
+      "fileMatch": ["*"],
+      "url": "./package-schema.json"
     }
   ]
 }

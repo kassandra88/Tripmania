@@ -5,14 +5,14 @@ import { ModalFormWrapper } from 'shared/styledComponents'
 
 type FormModalPropsType = {
   form: ReactNode
-  triggerButton: ReactNode
+  trigger: ReactNode
   isModalOpen: boolean
   handleCancel: () => void
 }
 
 export const FormModal: FC<FormModalPropsType> = ({
   form,
-  triggerButton,
+  trigger,
   isModalOpen,
   handleCancel,
 }) => {
@@ -24,7 +24,7 @@ export const FormModal: FC<FormModalPropsType> = ({
         </Row>
       </Modal>
 
-      {triggerButton}
+      {trigger}
     </>
   )
 }

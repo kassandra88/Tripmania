@@ -1,8 +1,8 @@
-import urlJoin from 'url-join'
 import axios, { AxiosError, AxiosResponse } from 'axios'
 
 import api from 'shared/api'
 import { AppDispatch } from 'app/store'
+import buildURL from 'shared/utils/url-builder'
 import { Error } from 'shared/types'
 import { getErrorMessage } from 'shared/helpers'
 import { showErrorNotification } from 'shared/store/systemNotifications'
@@ -32,7 +32,7 @@ export const registerUser =
     dispatch(registrationStart())
 
     api
-      .post(urlJoin(AUTH_ENDPOINT, REGISTRATION_ENDPOINT), userData)
+      .post(buildURL(AUTH_ENDPOINT, REGISTRATION_ENDPOINT), userData)
       .then((response: AxiosResponse) => {
         dispatch(registrationSuccess(response.data?.token))
       })
@@ -47,7 +47,7 @@ export const loginUser =
     dispatch(loginStart())
 
     api
-      .post(urlJoin(AUTH_ENDPOINT, LOGIN_ENDPOINT), userData)
+      .post(buildURL(AUTH_ENDPOINT, LOGIN_ENDPOINT), userData)
       .then((response: AxiosResponse) => {
         dispatch(loginSuccess(response.data?.token))
       })
@@ -61,7 +61,7 @@ export const getCurrentUser = () => (dispatch: AppDispatch) => {
   dispatch(getUserStart())
 
   api
-    .get(urlJoin(USERS_ENDPOINT, ME_ENDPOINT))
+    .get(buildURL(USERS_ENDPOINT, ME_ENDPOINT))
     .then((response: AxiosResponse) => {
       dispatch(getUserSuccess(response.data))
     })
@@ -83,7 +83,7 @@ export const getCurrentUser2 =
       }
 
       const response = await axios.get(
-        urlJoin(BASE_URL, USERS_ENDPOINT, ME_ENDPOINT),
+        buildURL(BASE_URL, USERS_ENDPOINT, ME_ENDPOINT),
         headers,
       )
 

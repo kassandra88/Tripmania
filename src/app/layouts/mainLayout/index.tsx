@@ -1,10 +1,10 @@
+import { Layout } from 'antd'
 import styled from 'styled-components'
-import { FC, ReactNode, useState } from 'react'
-import { Layout, theme } from 'antd'
+import { FC, ReactNode } from 'react'
 
 import { AppHelmet } from '../helmet'
 import { Header } from '../../../widgets/layouts/header'
-import { Sider } from '../../../widgets/layouts/sider'
+import { SistemNotifications } from 'app/sistemNotifications'
 
 const { Content } = Layout
 
@@ -13,9 +13,7 @@ const StyledLayout = styled(Layout)`
 `
 
 const StyledContent = styled(Content)`
-  margin: 24px 16px;
-  padding: 24px;
-  min-height: 280px;
+  padding: 20px 120px;
 `
 
 type MainLayoutPropsType = {
@@ -27,35 +25,15 @@ export const MainLayout: FC<MainLayoutPropsType> = ({
   children,
   pageTitle,
 }) => {
-  const [collapsed, setCollapsed] = useState(false)
-
-  const {
-    token: { colorBgContainer },
-  } = theme.useToken()
-
-  const handleToggleSider = () => setCollapsed(!collapsed)
-
   return (
     <StyledLayout>
+      <SistemNotifications />
+
       <AppHelmet pageTitle={pageTitle} />
 
-      <Sider collapsed={collapsed} />
+      <Header />
 
-      <Layout>
-        <Header
-          collapsed={collapsed}
-          onClick={handleToggleSider}
-          colorBgContainer={colorBgContainer}
-        />
-
-        <StyledContent
-          style={{
-            background: colorBgContainer,
-          }}
-        >
-          {children}
-        </StyledContent>
-      </Layout>
+      <StyledContent>{children}</StyledContent>
     </StyledLayout>
   )
 }

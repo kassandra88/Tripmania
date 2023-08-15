@@ -3,9 +3,10 @@
 
   "logout": "Cerrar sesión",
 
-  "// SiderMenu": "",
+  "// Menu": "",
 
-  "profile": "Perfil",
+  "profile": " Perfil",
+  "feed": "Inicio",
 
   "": ""
 }

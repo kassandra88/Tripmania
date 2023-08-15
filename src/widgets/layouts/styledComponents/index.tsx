@@ -1,13 +1,14 @@
 import styled from 'styled-components'
-import { Button, Col } from 'antd'
-
-export const StyledToggleSiderButton = styled(Button)`
-  font-size: 16px !important;
-  width: 64px !important;
-  height: 64px !important;
-  margin-right: 8px;
-`
+import { Col, Row } from 'antd'
 
 export const AuthBlockWrapper = styled(Col)`
-  margin-right: 6px;
+  height: 100%;
+`
+
+export const HeaderMenuWrapper = styled(Col)`
+  height: 100%;
+`
+
+export const HeaderWrapper = styled(Row)`
+  height: 100%;
 `
