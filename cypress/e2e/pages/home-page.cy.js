@@ -9,18 +9,11 @@ describe('Visit Home Page', () => {
     cy.contains('button', 'Logout')
   })
 
-  it('displays Sidebar', () => {
-    cy.get('.ant-layout-sider').should('be.visible')
+  it('displays Header', () => {
+    cy.get('.ant-layout-header').should('be.visible')
   })
 
-  it('displays Menu', () => {
-    cy.get('.ant-menu').should('be.visible')
-  })
-
-  it('displays Menu Item "Profile"', () => {
-    cy.get('.ant-menu-item')
-      .should('have.length', 3)
-      .first()
-      .should('have.text', 'Profile')
+  it('displays Login button', () => {
+    cy.contains('button', 'Login')
   })
 })
