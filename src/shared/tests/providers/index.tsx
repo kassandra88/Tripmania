@@ -1,4 +1,6 @@
 import { BrowserRouter } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import store from 'app/store'
 import { FC, ReactNode, Suspense } from 'react'
 
 import '../matchMedia'
@@ -13,7 +15,6 @@ jest.mock('react-i18next', () => ({
     return {
       t: (str: string) => str,
       i18n: {
-        // eslint-disable-next-line
         changeLanguage: () => new Promise(() => {}),
       },
     }
@@ -36,8 +37,10 @@ jest.mock('react-router-dom', () => {
 
 export const AllTheProviders: FC<Props> = ({ component }) => {
   return (
-    <Suspense fallback={'loading...'}>
-      <BrowserRouter>{component}</BrowserRouter>
-    </Suspense>
+    <Provider store={store}>
+      <Suspense fallback={'loading...'}>
+        <BrowserRouter>{component}</BrowserRouter>
+      </Suspense>
+    </Provider>
   )
 }
