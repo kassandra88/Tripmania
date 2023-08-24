@@ -4,6 +4,7 @@ import { Form, Formik } from 'formik'
 
 import { Input } from 'shared/components'
 import { PostType } from './types'
+import { TextArea } from 'shared/components/textArea'
 
 const { Text, Title } = Typography
 
@@ -50,9 +51,10 @@ export const CreatePostForm: FC<CreatePostFormPropsType> = ({
           <Col>
             <Text type="secondary">Text</Text>
 
-            <Input
+            <TextArea
               name="text"
               ariaLabel="text"
+              rows={8}
               value={values.text}
               onChange={(e) => setFieldValue('text', e.target.value)}
               onBlur={(e) => handleBlur(e)}

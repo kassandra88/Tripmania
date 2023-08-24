@@ -1,11 +1,13 @@
 import { combineReducers } from '@reduxjs/toolkit'
 import { notificationsReducer } from '../../../shared/store/systemNotifications/reducers'
+import { postsReducer } from 'entites/posts/store'
 import { userReducer } from '../../../entites/user/store'
 
 // Combine all your individual reducers into a single root reducer
 const rootReducer = combineReducers({
   user: userReducer,
   notifications: notificationsReducer,
+  posts: postsReducer,
 })
 
 // Define the RootState type by using the ReturnType of the root reducer
