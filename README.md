@@ -1,4 +1,4 @@
-# tripmania
+# Tripmania
 
 ### Additional Installation Steps
 
